@@ -1,0 +1,89 @@
+# =======================
+# SECRETS — NEVER COMMIT
+# =======================
+.env
+.env.*
+!.env.example
+*.env
+secrets/
+**/credentials*
+**/password*
+
+# SSH keys
+*.pem
+*.key
+*.ppk
+id_rsa*
+id_ed25519*
+*.pub
+
+# API keys / tokens
+*api_key*
+*api-key*
+*token*
+*.token
+
+# =======================
+# MALWARE — NEVER COMMIT
+# =======================
+downloads/
+malware/
+samples/
+*.bin
+*.elf
+**/cowrie/var/lib/cowrie/downloads/**
+
+# =======================
+# DATA — NEVER COMMIT
+# =======================
+postgres-data/
+pgdata/
+*.sql
+*.dump
+*.sql.gz
+!schema.sql
+!init-db.sql
+backups/
+*.bak
+*.backup
+
+# Cowrie runtime data
+cowrie/var/
+**/var/log/cowrie/
+**/var/lib/cowrie/
+
+# GeoIP database (large + license)
+*.mmdb
+GeoLite2-*
+
+# =======================
+# Build artifacts
+# =======================
+node_modules/
+dist/
+build/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+env/
+
+# =======================
+# IDE & OS
+# =======================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+*~
+
+# =======================
+# Logs
+# =======================
+*.log
+logs/
+journal/

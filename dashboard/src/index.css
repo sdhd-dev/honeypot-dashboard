@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-300 antialiased;
+    font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+      Helvetica, Arial, sans-serif;
+  }
+
+  /* Slim, dark scrollbars to match the theme */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.slate.700') transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+/* ---- Leaflet overrides for the dark theme ---- */
+.leaflet-container {
+  background: #020617; /* slate-950 */
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  @apply bg-slate-800 text-slate-200;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.leaflet-popup-content-wrapper {
+  @apply rounded-lg;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.leaflet-popup-close-button {
+  @apply text-slate-400;
+}
+
+.leaflet-tooltip {
+  @apply bg-slate-800 text-slate-200 border-slate-700 rounded-md shadow-lg;
+  font-size: 12px;
+}
+
+.leaflet-tooltip-top::before,
+.leaflet-tooltip-bottom::before,
+.leaflet-tooltip-left::before,
+.leaflet-tooltip-right::before {
+  border-top-color: theme('colors.slate.800');
+  border-bottom-color: theme('colors.slate.800');
+}
+
+.leaflet-control-attribution {
+  @apply bg-slate-900/70 text-slate-500;
+}
+.leaflet-control-attribution a {
+  @apply text-slate-400;
+}
+
+.leaflet-bar a {
+  @apply bg-slate-800 text-slate-200 border-slate-700;
+}
+.leaflet-bar a:hover {
+  @apply bg-slate-700;
+}
