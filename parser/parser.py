@@ -144,6 +144,11 @@ class EventHandler:
     def handle(self, event: dict) -> None:
         eventid = event.get("eventid", "")
 
+        # Strip NUL bytes — Postgres rejects them in text fields.
+        for k, v in event.items():
+            if isinstance(v, str) and "\x00" in v:
+                event[k] = v.replace("\x00", "")
+
         try:
             if eventid == "cowrie.session.connect":
                 self._on_session_connect(event)
